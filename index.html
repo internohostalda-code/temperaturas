@@ -3,79 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Captura de Temperaturas - Casa Quintana</title>
+    <title>Captura Casa Quintana</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; padding: 15px; font-family: sans-serif; }
-        .bodega-card { border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: none; }
-        .header-k61 { border-top: 5px solid #007bff; }
-        .header-l62 { border-top: 5px solid #28a745; }
-        .header-l100 { border-top: 5px solid #ffc107; }
-        .titulo-bodega { font-weight: bold; padding: 10px; margin: 0; font-size: 1.1rem; }
-        .circuito-box { background: #fff; border: 1px solid #dee2e6; border-radius: 6px; padding: 6px; text-align: center; min-height: 85px; }
-        .camara-label { font-size: 0.6rem; color: #6c757d; display: block; height: 24px; line-height: 1; font-weight: 500; margin-bottom: 2px; }
-        .c-num { font-size: 0.8rem; font-weight: bold; display: block; color: #212529; }
-        .form-control-sm { font-size: 0.9rem; padding: 0.2rem; }
+        body { background-color: #f4f7f6; padding: 10px; font-family: 'Segoe UI', sans-serif; }
+        .bodega-card { border-radius: 8px; margin-bottom: 15px; border: none; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .titulo-bodega { font-size: 0.9rem; font-weight: bold; padding: 8px 12px; margin: 0; border-radius: 8px 8px 0 0; color: white; }
+        .bg-k61 { background-color: #004a99; }
+        .bg-l62 { background-color: #1e7e34; }
+        .bg-l100 { background-color: #d39e00; }
+        .circuito-box { background: #fff; border: 1px solid #eee; padding: 5px; text-align: center; border-radius: 4px; }
+        .camara-label { font-size: 0.65rem; color: #777; display: block; height: 15px; overflow: hidden; white-space: nowrap; }
+        .c-num { font-size: 0.75rem; font-weight: bold; color: #333; }
+        .input-group-text { font-size: 0.7rem; padding: 0.2rem 0.4rem; background: #f8f9fa; }
+        .form-control-sm { font-size: 0.85rem; padding: 0.2rem; }
     </style>
 </head>
 <body>
 
-<div class="container" style="max-width: 700px;">
-    <h3 class="text-center mb-4">Registro Casa Quintana</h3>
+<div class="container" style="max-width: 500px;">
+    <h5 class="text-center mb-3">Registro de Temperaturas</h5>
     
     <form id="formTemperaturas" onkeydown="return event.key != 'Enter';">
         
-        <div class="card bodega-card header-k61">
-            <h5 class="titulo-bodega text-primary">Bodega K61</h5>
+        <div class="card bodega-card">
+            <div class="titulo-bodega bg-k61">BODEGA K61</div>
             <div class="card-body p-2">
                 <div class="row g-2">
                     <script>
                         const nK61 = ["Planta Alta","Planta Alta","Planta Alta","Cámara 1","Cámara 2","Sótano","Sótano","Sótano"];
                         nK61.forEach((n, i) => {
-                            document.write(`<div class="col-3"><div class="circuito-box"><span class="camara-label">${n}</span><span class="c-num">C${i+1}</span><input type="number" step="0.1" name="K61_C${i+1}" class="form-control form-control-sm text-center" required></div></div>`);
+                            document.write(`
+                            <div class="col-4">
+                                <div class="circuito-box">
+                                    <span class="camara-label">${n}</span>
+                                    <span class="c-num">C${i+1}</span>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" step="0.1" name="K61_C${i+1}" class="form-control form-control-sm text-center" required>
+                                        <span class="input-group-text">°C</span>
+                                    </div>
+                                </div>
+                            </div>`);
                         });
                     </script>
                 </div>
-                <input type="text" name="OBS_K61" class="form-control form-control-sm mt-2" placeholder="Observaciones generales K61">
+                <input type="text" name="OBS_K61" class="form-control form-control-sm mt-2" placeholder="Notas K61...">
             </div>
         </div>
 
-        <div class="card bodega-card header-l62">
-            <h5 class="titulo-bodega text-success">Bodega L62</h5>
+        <div class="card bodega-card">
+            <div class="titulo-bodega bg-l62">BODEGA L62</div>
             <div class="card-body p-2">
                 <div class="row g-2">
                     <script>
                         const nL62 = ["Sótano Chico","Sótano Gde","Sótano Gde","Planta Alta","Planta Alta","Planta Alta","Cámara 1","Cámara 2"];
                         nL62.forEach((n, i) => {
-                            document.write(`<div class="col-3"><div class="circuito-box"><span class="camara-label">${n}</span><span class="c-num">C${i+1}</span><input type="number" step="0.1" name="L62_C${i+1}" class="form-control form-control-sm text-center" required></div></div>`);
+                            document.write(`
+                            <div class="col-4">
+                                <div class="circuito-box">
+                                    <span class="camara-label">${n}</span>
+                                    <span class="c-num">C${i+1}</span>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" step="0.1" name="L62_C${i+1}" class="form-control form-control-sm text-center" required>
+                                        <span class="input-group-text">°C</span>
+                                    </div>
+                                </div>
+                            </div>`);
                         });
                     </script>
                 </div>
-                <input type="text" name="OBS_L62" class="form-control form-control-sm mt-2" placeholder="Observaciones generales L62">
+                <input type="text" name="OBS_L62" class="form-control form-control-sm mt-2" placeholder="Notas L62...">
             </div>
         </div>
 
-        <div class="card bodega-card header-l100">
-            <h5 class="titulo-bodega text-warning">Bodega L100</h5>
+        <div class="card bodega-card">
+            <div class="titulo-bodega bg-l100">BODEGA L100</div>
             <div class="card-body p-2">
                 <div class="row g-2">
                     <script>
                         const nL100 = ["Cámara 1","Cámara 2","Cámara 3","Cámara 4","Cámara 5","Sótano","Sótano","Sótano"];
                         nL100.forEach((n, i) => {
-                            document.write(`<div class="col-3"><div class="circuito-box"><span class="camara-label">${n}</span><span class="c-num">C${i+1}</span><input type="number" step="0.1" name="L100_C${i+1}" class="form-control form-control-sm text-center" required></div></div>`);
+                            document.write(`
+                            <div class="col-4">
+                                <div class="circuito-box">
+                                    <span class="camara-label">${n}</span>
+                                    <span class="c-num">C${i+1}</span>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" step="0.1" name="L100_C${i+1}" class="form-control form-control-sm text-center" required>
+                                        <span class="input-group-text">°C</span>
+                                    </div>
+                                </div>
+                            </div>`);
                         });
                     </script>
                 </div>
-                <input type="text" name="OBS_L100" class="form-control form-control-sm mt-2" placeholder="Observaciones generales L100">
+                <input type="text" name="OBS_L100" class="form-control form-control-sm mt-2" placeholder="Notas L100...">
             </div>
         </div>
 
-        <button type="button" onclick="subir()" id="btn" class="btn btn-primary w-100 btn-lg mt-3 mb-5 shadow">SUBIR A LA NUBE</button>
+        <button type="button" onclick="subir()" id="btn" class="btn btn-dark w-100 btn-lg mt-3 mb-5 shadow">GUARDAR REGISTROS</button>
     </form>
 </div>
 
 <script>
-    const MI_URL_NUBE = " https://script.google.com/macros/s/AKfycbzchmq4c3lcOqgPeSOjkMAQvoFZ4rZFg6qgXz4uyPNtmZak7pDGvyzbL2vuzRqHJIEY/exec"; //
+    const MI_URL_NUBE = "TU_URL_AQUI"; // <--- NO OLVIDES PEGAR TU URL DE GOOGLE AQUÍ
 
     function subir() {
         const f = document.getElementById('formTemperaturas');
@@ -103,13 +134,13 @@
             body: JSON.stringify({ lecturas, obs })
         })
         .then(() => {
-            alert("✅ Datos guardados en Excel.");
+            alert("✅ ¡Éxito! Datos guardados en la nube.");
             f.reset();
         })
-        .catch(() => alert("❌ Error al enviar."))
+        .catch(() => alert("❌ Error de conexión."))
         .finally(() => {
             document.getElementById('btn').disabled = false;
-            document.getElementById('btn').innerText = "SUBIR A LA NUBE";
+            document.getElementById('btn').innerText = "GUARDAR REGISTROS";
         });
     }
 </script>
